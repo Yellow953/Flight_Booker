@@ -1,0 +1,14 @@
+<div class="container-fluid text-center">
+    <h1 class="my-5">Welcome to book a Flight</h1>
+    <% if !user_signed_in? %>
+        You are not Signed in <br>
+        Please sign in to book a flight <br>
+        <%= link_to "Log in", new_user_session_url %> or 
+        <%= link_to "Register", new_user_registration_url %>
+    <% else %>
+
+
+
+
+    <% end %>
+</div>
