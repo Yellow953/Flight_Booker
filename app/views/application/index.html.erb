@@ -1,4 +1,4 @@
-<div class="container-fluid text-center">
+<div class="container-fluid text-center p-5">
     <h1 class="my-5">Welcome to book a Flight</h1>
     <% if !user_signed_in? %>
         You are not Signed in <br>
@@ -6,9 +6,35 @@
         <%= link_to "Log in", new_user_session_url %> or 
         <%= link_to "Register", new_user_registration_url %>
     <% else %>
+        <%= form_for( root_url , method: :get) do |form| %>
+            <div>
+                <%= form.label :date %>
+                <%= form.date_field :date, class:"form-control m-2" %>
+            </div>
 
+            <div>
+                <%= form.label :airport %>
+                <select name="airport" class="m-2 form-control">
+                    <option value="" selected>Choose an airport<option>
+                    <% @airports.each do |airport| %>
+                        <option value="<%= airport.id %>"><%= airport.name %></option>  
+                    <% end %>
+                </select>
+            </div>
 
+            <div>
+                <%= form.submit "Search", class:"btn btn-primary" %>
+            </div>
+        <% end %>
 
+        <% if @result %>
+            <h2 class="my-2 mt-5">Flights</h2>
+            <% @result.each do |r| %>
+                <%= r %>
+                <%= link_to "Select", r %> <br>
+            <% end %>
+        <% end %>
+        
 
     <% end %>
 </div>

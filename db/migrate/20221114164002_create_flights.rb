@@ -4,8 +4,6 @@ class CreateFlights < ActiveRecord::Migration[7.0]
       t.string :name
       t.datetime :time
       t.float :duration
-      t.belongs_to :start_airport, class_name: "Airport"
-      t.belongs_to :end_airport, class_name: "Airport"
       t.timestamps
     end
   end

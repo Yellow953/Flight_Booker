@@ -17,20 +17,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_164002) do
   create_table "airports", force: :cascade do |t|
     t.string "name"
     t.string "code"
+    t.bigint "start_airport_id"
+    t.bigint "end_airport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["end_airport_id"], name: "index_airports_on_end_airport_id"
+    t.index ["start_airport_id"], name: "index_airports_on_start_airport_id"
   end
 
   create_table "flights", force: :cascade do |t|
     t.string "name"
     t.datetime "time"
     t.float "duration"
-    t.bigint "start_airport_id"
-    t.bigint "end_airport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["end_airport_id"], name: "index_flights_on_end_airport_id"
-    t.index ["start_airport_id"], name: "index_flights_on_start_airport_id"
   end
 
   create_table "users", force: :cascade do |t|
