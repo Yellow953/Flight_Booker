@@ -1,0 +1,16 @@
+<h1>Book Flight: <%= @flight.name %></h1>
+
+<%= form_for( book_passenger_path(id: @flight.id), method: :post) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+
+    <%= f.label :age %>
+    <%= f.number_field :age %> <br>
+
+    <%= f.label :seat %>
+    <%= f.text_field :seat %> <br>
+
+    <%= f.hidden_field :flight_id, value:@flight.id %>
+
+    <%= f.submit "Submit" %>
+<% end %>

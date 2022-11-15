@@ -16,12 +16,20 @@
 
   <p>
     <strong>Start Airport:</strong>
-    <%= flight.start_airport.name %>
+    <% Airport.all.each do |a| %>
+      <% if flight.start_airport == a.id %>
+          <%= a.name %>
+      <% end %>
+    <%end%>
   </p>
 
   <p>
     <strong>End Airport:</strong>
-    <%= flight.end_airport.name %>
+    <% Airport.all.each do |a| %>
+      <% if flight.end_airport == a.id %>
+          <%= a.name %>
+      <% end %>
+    <%end%>
   </p>
 
 </div>

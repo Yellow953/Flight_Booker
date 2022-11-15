@@ -1,6 +1,7 @@
 class Flight < ApplicationRecord
+    has_many :passengers
 
-    has_one :start_airport, class_name: "Airport" 
-    has_one :end_airport, class_name: "Airport"
-    
+    def self.search(time, end_airport) 
+        where(['time = ? AND end_airport = ?', "%#{time}%", "%#{end_airport}%"])
+    end
 end

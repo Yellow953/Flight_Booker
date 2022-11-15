@@ -6,7 +6,7 @@
 
   <div>
     <%= form.label :time, style: "display: block" %>
-    <%= form.datetime_field :time, class:"form-control m-2" %>
+    <%= form.date_field :time, class:"form-control m-2" %>
   </div>
 
   <div>
@@ -16,22 +16,12 @@
 
   <div>
     <%= form.label :start_airport, style: "display: block" %>
-    <select name="start_airport" class="m-2 form-control">
-      <option value="" selected>Choose an airport<option>
-      <% @airports.each do |airport| %>
-        <option value="<%= airport.id %>"><%= airport.name %></option>  
-      <% end %>
-    </select>
+    <%= form.collection_select :start_airport, Airport.all , :id, :name %>
   </div>
 
   <div>
     <%= form.label :end_airport, style: "display: block" %>
-    <select name="end_airport" class="m-2 form-control">
-      <option value="" selected>Choose an airport<option>
-      <% @airports.each do |airport| %>
-        <option value="<%= airport.id %>"><%= airport.name %></option>  
-      <% end %>
-    </select>
+   <%= form.collection_select :end_airport, Airport.all, :id, :name %>
   </div>
 
   

@@ -24,6 +24,7 @@ class FlightsController < ApplicationController
   def create
     @flight = Flight.new(flight_params)
 
+
     respond_to do |format|
       if @flight.save
         format.html { redirect_to flight_url(@flight), notice: "Flight was successfully created." }

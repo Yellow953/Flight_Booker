@@ -1,8 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @flight %>
 
 <div>
+  <%= link_to "Book", book_flight_url(id: @flight.id)  %><br>
+
   <%= link_to "Edit this flight", edit_flight_path(@flight) %> |
   <%= link_to "Back to flights", flights_path %>
 

@@ -8,14 +8,13 @@
     <% else %>
         <%= form_for( root_url , method: :get) do |form| %>
             <div>
-                <%= form.label :date %>
-                <%= form.date_field :date, class:"form-control m-2" %>
+                <%= form.label :time %>
+                <%= form.date_field :time, class:"form-control m-2", value:Date.today %>
             </div>
 
             <div>
-                <%= form.label :airport %>
-                <select name="airport" class="m-2 form-control">
-                    <option value="" selected>Choose an airport<option>
+                <%= form.label :end_airport %>
+                <select name="end_airport" class="m-2 form-control">
                     <% @airports.each do |airport| %>
                         <option value="<%= airport.id %>"><%= airport.name %></option>  
                     <% end %>
@@ -30,7 +29,7 @@
         <% if @result %>
             <h2 class="my-2 mt-5">Flights</h2>
             <% @result.each do |r| %>
-                <%= r %>
+                <%= r.name %>
                 <%= link_to "Select", r %> <br>
             <% end %>
         <% end %>
